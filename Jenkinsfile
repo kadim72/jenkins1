@@ -27,7 +27,7 @@ pipeline {
 
             // }
             when {
-                branch 'prod'
+                branch 'main'
             }
 
             steps{
