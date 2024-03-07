@@ -2,11 +2,19 @@ pipeline {
     agent {
         docker {
             image 'node:21-alpine'
+            label 'monagent-docker'
         }
+    }
+
+    options{
+        timeout(time:1, unit:"HOURS")
     }
 
     stages {
         stage('build'){
+            options {
+                timestamps()
+            }
             steps{
 
                 sh 'npm -v' 
