@@ -9,7 +9,7 @@ pipeline {
 
             steps {
                 sh 'echo hello > word.txt'
-                archiveArtifacs(artifacts: '*.txt')
+                archiveArtifacts(artifacts: '*.txt')
 
              }
 
