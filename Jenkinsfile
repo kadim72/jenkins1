@@ -3,7 +3,7 @@ pipeline {
 
     environment{
 
-        MY_VAR 'ma valeur'
+        MY_VAR = 'ma valeur'
     }
     parameters {
         string(name: 'NAME', defaultValue: 'M. Jenkins', description: 'QuiEst ce ?')
