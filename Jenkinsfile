@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:21-alpine'
-            label 'monagent-docker'
+
         }
     }
 
