@@ -1,5 +1,5 @@
 pipeline {
-    
+
     agent any
 
     parameters {
@@ -10,6 +10,8 @@ pipeline {
    
     stages {
         stage('build'){
+
+            failFast true
 
             parallel {
 
