@@ -1,13 +1,12 @@
 pipeline {
-    agent any
-    triggers {  
-        pollSCM('H */4 * * *')
-    }
+        agent any
 
-        environment{
-            DEPLOY_TO = 'production'
+        parameters {
+
+            booleanParam(name: 'DEPLOY_TO', defaultValue: false, description: 'Deployer en production Yes/No')
+ 
         }
-    stages {
+   
 
         stage('build'){
 
@@ -32,7 +31,7 @@ pipeline {
             when {
                 allOf{
                     branch 'main'
-                    environment  name: 'DEPLOY_TO', value: 'production' 
+                    equals expected: true, actual: params.DEPLOY_TO
                 }
             }
 
