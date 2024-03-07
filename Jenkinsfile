@@ -8,7 +8,7 @@ pipeline {
         stage('build '){
 
             steps {
-                echo 'hello' > word.txt
+                sh 'echo hello > word.txt'
                 archiveArtifacs(artifacts: '*.txt')
 
              }
