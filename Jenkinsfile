@@ -33,19 +33,19 @@ pipeline {
         }
         stage('deployment production'){
    
-                when {
-                    allOf{
-                        branch 'main'
-                        equals expected: true, actual: params.DEPLOY_TO
-                    }
-                }
+                // when {
+                //     allOf{
+                //         branch 'main'
+                //         equals expected: true, actual: params.DEPLOY_TO
+                //     }
+                // }
 
                 steps{
-                parameters {
+                // parameters {
 
-                     booleanParam(name: 'DEPLOY_TO', defaultValue: false, description: 'Deployer en production Yes/No')
+                //      booleanParam(name: 'DEPLOY_TO', defaultValue: false, description: 'Deployer en production Yes/No')
 
-                }
+                // }
                     echo "deploy  ..."      
                 }
         }
