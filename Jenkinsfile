@@ -2,11 +2,7 @@ pipeline {
 
     agent any
 
-    parameters {
 
-        booleanParam(name: 'DEPLOY_TO', defaultValue: false, description: 'Deployer en production Yes/No')
-
-    }
    
     stages {
         stage('build'){
@@ -36,6 +32,11 @@ pipeline {
 
         }
         stage('deployment production'){
+                parameters {
+
+                     booleanParam(name: 'DEPLOY_TO', defaultValue: false, description: 'Deployer en production Yes/No')
+
+                }
                 when {
                     allOf{
                         branch 'main'
