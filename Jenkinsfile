@@ -1,54 +1,55 @@
 pipeline {
 
     agent any
-    parameters {
 
-            booleanParam(name: 'DEPLOY_TO', defaultValue: false, description: 'Deployer en production Yes/No')
-
-    }
 
    
     stages {
-        stage('build'){
+        stage('build & test'){
 
-            failFast true
-
-            parallel {
-
-                            stage('build frontend '){
-
-                    steps{
-
-                        echo "build frontend..."
-            
+            matrix {
+                axes {
+                    axis {
+                        name 'PLATFORM'
+                        values 'linux' , 'macOS', 'windows'
                     }
-            }
-           stage('build backend '){
-
-                    steps{
-
-                        echo "build backend..."
-            
+                    axis {
+                        name 'BROWSER'
+                        values  'firefox', 'chrome', 'safari'
                     }
-            }
+                }
+
+                stages {
+
+                    stage('build') {
+                        steps {
+
+                            echo "construire build  pour ${PLATFORM} - ${ BROWSER }"
+                        }
+                    }
+
+                    stage('test') {
+
+                    steps {
+
+                            echo "construire test pour ${PLATFORM} - ${ BROWSER }"
+                        }
+                    }
+                    }
+                }
 
             }
 
+           
         }
-        stage('deployment production'){
 
-   
-                when {
-                    allOf{
-                        branch 'main'
-                        equals expected: true, actual: params.DEPLOY_TO
-                    }
-                }
+        stage 'deployment'{
 
-                steps{
+            steps {
 
-                    echo "deploy  ..."      
-                }
+                echo 'deploy'
+            }
+
         }
     }
 
