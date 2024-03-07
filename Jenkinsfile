@@ -23,7 +23,7 @@ pipeline {
                 echo "TEXT: ${ TEXT }"
                 echo "TOGGLE: ${ TOGGLE }"
                 echo "PASSWORD: ${ PASSWORD }"
-                echo "MY_VAR: ${ $MY_VAR}"
+                echo "MY_VAR: ${ env.MY_VAR}"
       
             }
         }
