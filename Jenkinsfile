@@ -32,6 +32,11 @@ pipeline {
 
         }
         stage('deployment production'){
+             parameters {
+
+                     booleanParam(name: 'DEPLOY_TO', defaultValue: false, description: 'Deployer en production Yes/No')
+
+                }
    
                 when {
                     allOf{
@@ -41,11 +46,7 @@ pipeline {
                 }
 
                 steps{
-                parameters {
 
-                     booleanParam(name: 'DEPLOY_TO', defaultValue: false, description: 'Deployer en production Yes/No')
-
-                }
                     echo "deploy  ..."      
                 }
         }
