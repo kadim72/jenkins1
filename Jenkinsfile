@@ -32,10 +32,12 @@ pipeline {
 
         }
         stage('deployment production'){
+                steps {
                 parameters {
 
                      booleanParam(name: 'DEPLOY_TO', defaultValue: false, description: 'Deployer en production Yes/No')
 
+                }
                 }
                 when {
                     allOf{
