@@ -7,42 +7,42 @@ pipeline {
  
         }
    
+    stages {
+            stage('build'){
 
-        stage('build'){
+                    steps{
 
-            steps{
-
-                echo "build ..."
-      
+                        echo "build ..."
+            
+                    }
             }
-        }
-        stage('deployment production'){
-            // input {
-            //     message  'Souhaitez vous deployer en production ?'
-            //     ok 'deployer !'
+            stage('deployment production'){
+                // input {
+                //     message  'Souhaitez vous deployer en production ?'
+                //     ok 'deployer !'
 
-            //     submitter 'admin,devops'
-            //     submitterParameter 'USER_SUBMIT'
-            //     parameters {
-            //         string (name: 'VERSION', defaultValue: 'latest' , description: 'Version')
-            //     }
+                //     submitter 'admin,devops'
+                //     submitterParameter 'USER_SUBMIT'
+                //     parameters {
+                //         string (name: 'VERSION', defaultValue: 'latest' , description: 'Version')
+                //     }
 
-            // }
-            when {
-                allOf{
-                    branch 'main'
-                    equals expected: true, actual: params.DEPLOY_TO
-                }
+                // }
+                    when {
+                        allOf{
+                            branch 'main'
+                            equals expected: true, actual: params.DEPLOY_TO
+                        }
+                    }
+
+                    steps{
+                        // echo "user: ${ USER_SUBMIT }"
+                        // echo "version: ${ VERSION }"
+
+                        echo "deploy  ..."
+            
+                    }
             }
-
-            steps{
-                // echo "user: ${ USER_SUBMIT }"
-                // echo "version: ${ VERSION }"
-
-                echo "deploy  ..."
-      
-            }
-        }
     }
 
 
