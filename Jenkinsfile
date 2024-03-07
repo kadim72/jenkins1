@@ -35,13 +35,11 @@ pipeline {
                             echo "construire test pour ${PLATFORM} - ${ BROWSER }"
                         }
                     }
-                    }
                 }
-
             }
 
-           
         }
+
 
         stage 'deployment'{
 
