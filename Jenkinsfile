@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'node:21-alpine'
-            label 'monagent'
 
         }
     }
@@ -14,9 +13,7 @@ pipeline {
     stages {
 
         stage('build'){
-            agent {
-                label 'monagent'
-            }
+
             options {
                 timestamps()
             }
