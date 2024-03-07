@@ -4,6 +4,9 @@ pipeline {
         pollSCM('H */4 * * *')
     }
 
+        environment{
+            DEPLOY_TO = 'production'
+        }
     stages {
 
         stage('build'){
