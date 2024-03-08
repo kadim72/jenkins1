@@ -10,7 +10,8 @@ pipeline {
         stage('build '){
 
             steps {
-                npm -v
+                echo "build"
+                // npm -v
              }
 
         }
