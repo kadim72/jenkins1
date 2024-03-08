@@ -11,7 +11,7 @@ pipeline {
 
             steps {
                // echo "build"
-                /home/dev/.nvm/versions/node/v21.4.0/bin/npm -v
+                sh '/home/dev/.nvm/versions/node/v21.4.0/bin/npm -v'
              }
 
         }
