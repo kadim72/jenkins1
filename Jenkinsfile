@@ -11,9 +11,9 @@ pipeline {
         stage('build '){
 
             steps {
-               // echo "build"
-                sh 'node -v'
-                sh 'npm -v'
+                echo "build  ..."
+                node -v
+                npm -v
              }
 
         }
