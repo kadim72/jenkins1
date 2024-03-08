@@ -4,6 +4,7 @@ pipeline {
 
     tools {
         gradle 'gradle-8.7'
+        nodejs 'nodejs21.7'
     }
    
     stages {
@@ -11,7 +12,8 @@ pipeline {
 
             steps {
                // echo "build"
-                sh '/home/dev/.nvm/versions/node/v21.4.0/bin/npm -v'
+                sh 'node -v'
+                sh 'npm -v'
              }
 
         }
