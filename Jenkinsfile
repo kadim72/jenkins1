@@ -19,13 +19,13 @@ pipeline {
 
         }
 
-        post {
-            success {
-                emailext (to: 'mehdikadim72@gmail.com', body:  'test body', subject: 'test subject')
-            }
-        }
 
     }
 
 
+    post {
+        success {
+            emailext (to: 'mehdikadim72@gmail.com', body:  'test body', subject: 'test subject')
+        }
+    }
 }
