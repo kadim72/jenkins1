@@ -8,9 +8,7 @@ pipeline {
         stage('build '){
 
             steps {
-                sh 'echo hello > word.txt'
-                archiveArtifacts(artifacts: '*.txt')
-
+                sh 'gradle -v'
              }
 
         }
