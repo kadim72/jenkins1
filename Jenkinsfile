@@ -12,10 +12,17 @@ pipeline {
 
             steps {
                 echo "build  ..."
-                sh 'node -v'
-                sh 'npm -v'
+
+        
+  
              }
 
+        }
+
+        post {
+            success {
+                emailext (to: 'mehdikadim72@gmail.com', body:  'test body', subject: 'test subject')
+            }
         }
 
     }
