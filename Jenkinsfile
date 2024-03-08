@@ -12,8 +12,8 @@ pipeline {
 
             steps {
                 echo "build  ..."
-                'node -v'
-                'npm -v'
+                sh 'node -v'
+                sh 'npm -v'
              }
 
         }
