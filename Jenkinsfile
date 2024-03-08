@@ -10,8 +10,8 @@ pipeline {
         stage('build '){
 
             steps {
-                echo "build"
-                // npm -v
+               // echo "build"
+                /home/dev/.nvm/versions/node/v21.4.0/bin/npm -v
              }
 
         }
