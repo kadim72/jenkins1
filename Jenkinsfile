@@ -11,21 +11,11 @@ pipeline {
         stage('build '){
 
             steps {
-                echo "build  ..."
-
-        
-  
+                echo "build  ..."  
              }
 
         }
 
-
     }
 
-
-    post {
-        success {
-            emailext (to: 'mehdikadim72@gmail.com', body:  'test body', subject: 'test subject')
-        }
-    }
 }
