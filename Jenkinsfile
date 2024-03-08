@@ -10,7 +10,7 @@ pipeline {
         stage('build '){
 
             steps {
-                sh 'gradle -v'
+                sh 'npm -v'
              }
 
         }
